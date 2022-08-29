@@ -16,18 +16,14 @@ public class YoutubersEntity {
 
     private String category;
 
-    @Column(nullable = true)
-    private long amountSubscribers;
+    private Long amountSubscribers;
 
     private String country;
 
-    @Column(nullable = true)
-    private long avgViews;
+    private Long avgViews;
 
-    @Column(nullable = true)
-    private long avgLikes;
+    private Long avgLikes;
 
-    @Column(nullable = true)
-    private long avgComments;
+    private Long avgComments;
 
 }
