@@ -33,7 +33,7 @@ class YoutubersApplicationTests implements WithAssertions {
     @Test
     void testUsernameWithA() {
         List<YoutubersEntity> list = youtubersRepository.findAllByUsernameContainingOrderByUsername("a", Pageable.ofSize(10));
-        System.out.println(list);
+		assertThat(list.size()).isEqualTo(10);
     }
 
     @Test
