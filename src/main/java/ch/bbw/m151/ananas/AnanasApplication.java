@@ -1,4 +1,4 @@
-package ch.bbw.m151.youtubers;
+package ch.bbw.m151.ananas;
 
 import org.h2.tools.Server;
 import org.springframework.boot.SpringApplication;
@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Bean;
 import java.sql.SQLException;
 
 @SpringBootApplication
-public class YoutubersApplication {
+public class AnanasApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(YoutubersApplication.class, args);
+        SpringApplication.run(AnanasApplication.class, args);
     }
 
     @Bean(initMethod = "start", destroyMethod = "stop")
