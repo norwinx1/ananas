@@ -35,4 +35,9 @@ public class MainController {
     public List<PineappleEntity> findAll() {
         return pineappleRepository.findAll();
     }
+
+    @GetMapping("/getWeights")
+    public List<Integer> getWeights() {
+        return pineappleRepository.getWeights();
+    }
 }

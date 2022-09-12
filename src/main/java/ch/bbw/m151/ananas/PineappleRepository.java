@@ -1,6 +1,7 @@
 package ch.bbw.m151.ananas;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,4 +14,6 @@ public interface PineappleRepository extends JpaRepository<PineappleEntity, Inte
     @Transactional
     void deleteByIdEquals(Integer id);
 
+    @Query("SELECT DISTINCT weight FROM PineappleEntity")
+    List<Integer> getWeights();
 }
