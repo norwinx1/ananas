@@ -2,6 +2,7 @@ package ch.bbw.m151.ananas;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -9,6 +10,7 @@ import java.util.List;
 public interface PineappleRepository extends JpaRepository<PineappleEntity, Integer> {
     List<PineappleEntity> findAllByTypeEqualsAndQualityEquals(String type, Integer quality);
 
+    @Transactional
     void deleteByIdEquals(Integer id);
 
 }

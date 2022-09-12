@@ -1,6 +1,7 @@
 package ch.bbw.m151.ananas;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
@@ -22,7 +23,7 @@ public class MainController {
 
     @GetMapping("/findAll")
     public List<PineappleEntity> findAll(@PathParam("limit") Integer limit) {
-        return null;
+        return pineappleRepository.findAll(Pageable.ofSize(limit)).getContent();
     }
 
     @DeleteMapping("/deleteById")
