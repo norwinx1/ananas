@@ -21,13 +21,18 @@ public class MainController {
         return pineappleRepository.findAllByTypeEqualsAndQualityEquals(ananas.getType(), ananas.getQuality());
     }
 
-    @GetMapping("/findAll")
-    public List<PineappleEntity> findAll(@PathParam("limit") Integer limit) {
+    @GetMapping("/findAllLimit")
+    public List<PineappleEntity> findAllLimit(@PathParam("limit") Integer limit) {
         return pineappleRepository.findAll(Pageable.ofSize(limit)).getContent();
     }
 
     @DeleteMapping("/deleteById")
     public void deleteById(@PathParam("id") Integer id) {
         pineappleRepository.deleteByIdEquals(id);
+    }
+
+    @GetMapping("/findAll")
+    public List<PineappleEntity> findAll() {
+        return pineappleRepository.findAll();
     }
 }

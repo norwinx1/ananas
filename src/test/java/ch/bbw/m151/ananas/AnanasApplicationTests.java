@@ -17,7 +17,7 @@ class AnanasApplicationTests implements WithAssertions {
     }
 
     @Test
-    void testFindAll() {
+    void testFindAllLimit() {
         assertThat(pineappleRepository.findAll(Pageable.ofSize(10)).getContent().size()).isEqualTo(10);
     }
 
@@ -25,5 +25,11 @@ class AnanasApplicationTests implements WithAssertions {
     void testDeleteById() {
         pineappleRepository.deleteByIdEquals(10);
         assertThat(pineappleRepository.count()).isEqualTo(999);
+    }
+
+    @Test
+    void testFindAll() {
+        FarmerEntity farmer = pineappleRepository.findAll().get(0).getFarmer();
+        assertThat(farmer.getId()).isEqualTo(14);
     }
 }

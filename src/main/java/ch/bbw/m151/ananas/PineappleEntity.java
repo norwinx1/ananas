@@ -10,7 +10,7 @@ public class PineappleEntity {
 
     private String type;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private FarmerEntity farmer;
 
     private Integer quality;
