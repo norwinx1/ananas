@@ -6,18 +6,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class AnanasEntity {
+public class FarmerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private String name;
 
-    private String type;
+    private String country;
 
-    private Integer date;
+    private String city;
 
-    private Integer farmerId;
-
-    private Integer quality;
+    //Unit is hectares
+    private Integer fieldSize;
 }
