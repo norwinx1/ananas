@@ -11,6 +11,8 @@ import java.util.List;
 @SpringBootTest
 class AnanasApplicationTests implements WithAssertions {
     @Autowired
+    private MainController mainController;
+    @Autowired
     private PineappleRepository pineappleRepository;
 
     @Test
@@ -40,4 +42,11 @@ class AnanasApplicationTests implements WithAssertions {
         List<Integer> weights = pineappleRepository.getWeights();
         assertThat(weights.size()).isLessThan(300);
     }
+
+    //Bonus: Funktioniert nicht, da Prepared Statements nicht deaktiviert werden können
+//    @Test
+//    void testSqlInjection() {
+//        mainController.sqlInjection("1; DELETE FROM PineappleEntity");
+//        assertThat(pineappleRepository.findById(1).isEmpty());
+//    }
 }
