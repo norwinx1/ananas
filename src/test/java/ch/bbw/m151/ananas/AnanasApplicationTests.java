@@ -44,9 +44,9 @@ class AnanasApplicationTests implements WithAssertions {
     }
 
     //Bonus: Funktioniert nicht, da Prepared Statements nicht deaktiviert werden können
-//    @Test
-//    void testSqlInjection() {
-//        mainController.sqlInjection("1; DELETE FROM PineappleEntity");
-//        assertThat(pineappleRepository.findById(1).isEmpty());
-//    }
+    //@Test
+    void testSqlInjection() {
+        mainController.sqlInjection("1; DELETE FROM PineappleEntity");
+        assertThat(pineappleRepository.findById(1).isEmpty());
+    }
 }
