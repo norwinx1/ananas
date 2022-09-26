@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
+import javax.persistence.Query;
 import javax.websocket.server.PathParam;
 import java.util.List;
 
@@ -53,9 +53,9 @@ public class MainController {
 
     //Bonus
     @GetMapping("/sqlInjection")
-    public List<Integer> sqlInjection(@PathParam("id") String id) {
-        String jql = "SELECT id FROM FarmerEntity WHERE id = '" + id + "'";
-        TypedQuery<Integer> q = em.createQuery(jql, Integer.class);
+    public List sqlInjection(@PathParam("id") String id) {
+        String jql = "SELECT id FROM PINEAPPLE_ENTITY WHERE id = '" + id + "'";
+        Query q = em.createNativeQuery(jql);
         return q.getResultList();
     }
 }

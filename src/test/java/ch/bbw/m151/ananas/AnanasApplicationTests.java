@@ -43,10 +43,10 @@ class AnanasApplicationTests implements WithAssertions {
         assertThat(weights.size()).isLessThan(300);
     }
 
-    //Bonus: Funktioniert nicht, da Prepared Statements nicht deaktiviert werden können
-    //@Test
+    //Bonus
+    @Test
     void testSqlInjection() {
-        mainController.sqlInjection("1; DELETE FROM PineappleEntity");
-        assertThat(pineappleRepository.findById(1).isEmpty());
+        List list = mainController.sqlInjection("1' OR 1=1--");
+        assertThat(list.size()).isEqualTo(1000);
     }
 }
